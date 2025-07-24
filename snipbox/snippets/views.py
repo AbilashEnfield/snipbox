@@ -6,6 +6,14 @@ from .serializers import SnippetSerializer
 
 class Snippet(viewsets.ViewSet):
     permission_classes = [permissions.IsAuthenticated]
+    
+    def list(self, request):
+        snippets = Snippet.objects.filter(user=request.user)
+        serializer = SnippetSerializer(snippets, many=True)
+        return Response({
+            "total_count": snippets.count(),
+            "snippets": serializer.data
+        })
 
     def create(self, request):
         serializer = SnippetSerializer(data=request.data)
