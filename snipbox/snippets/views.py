@@ -1,7 +1,7 @@
-from rest_framework import viewsets, permissions, status
+from rest_framework import viewsets, permissions, status, generics
 from rest_framework.response import Response
 from .models import Snippet, Tag
-from .serializers import SnippetSerializer
+from .serializers import SnippetSerializer, TagSerializer
 from django.shortcuts import get_object_or_404
 
 
@@ -40,3 +40,8 @@ class Snippet(viewsets.ViewSet):
         snippet = get_object_or_404(Snippet, pk=pk, user=request.user)
         snippet.delete()
         return self.list(request)
+
+class TagList(generics.ListAPIView):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+    permission_classes = [permissions.IsAuthenticated]
