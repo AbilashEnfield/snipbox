@@ -1,0 +1,289 @@
+{
+	"info": {
+		"_postman_id": "3fb9ed48-5de0-4000-91e1-3897a14848ef",
+		"name": "Snipbox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20604319"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Abilash\",\r\n  \"password\": \"Passmein\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				},
+				"description": "Method for logging in and to ge the access and refresh token"
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMzM0NzU2LCJpYXQiOjE3NTMzMzQxNTYsImp0aSI6ImYyYWQ0YTJhZWQ5MTQ5ZDViMDMwM2JiNjZhYzVmNmMyIiwidXNlcl9pZCI6MX0.C39JnAiWS9V4i0hbHBbtJUQKSoVHd668lVcUZCnJVxw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MzQyMDU1NiwiaWF0IjoxNzUzMzM0MTU2LCJqdGkiOiIyN2U0MzYyZThkNGM0NzY1OTBhZGQ5NjhjMzQ5MzViOCIsInVzZXJfaWQiOjF9.iICK_Wpcf6wYuj4KD6i_bZBYotKbeeFGfuA4r997FGw\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/token/refresh/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Snippet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMzQwMjEwLCJpYXQiOjE3NTMzMzk2MTAsImp0aSI6ImJiNDYwNzhhZTNiNjQ5NGQ4ZWZlMDFmNDg3YmY2M2E4IiwidXNlcl9pZCI6MX0.HemL9Mx_titgDIiO9M2cRYhZTRkmPkwliCWezBHRW7I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Assesment\",\r\n  \"note\": \"Snibox Assesment for Admaren has to be completed\",\r\n  \"tag\": {\r\n    \"title\": \"Work\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/snippets/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"snippets",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Snippets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMzQwMjEwLCJpYXQiOjE3NTMzMzk2MTAsImp0aSI6ImJiNDYwNzhhZTNiNjQ5NGQ4ZWZlMDFmNDg3YmY2M2E4IiwidXNlcl9pZCI6MX0.HemL9Mx_titgDIiO9M2cRYhZTRkmPkwliCWezBHRW7I",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/snippets/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"snippets",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Snippet Detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMzQwMjEwLCJpYXQiOjE3NTMzMzk2MTAsImp0aSI6ImJiNDYwNzhhZTNiNjQ5NGQ4ZWZlMDFmNDg3YmY2M2E4IiwidXNlcl9pZCI6MX0.HemL9Mx_titgDIiO9M2cRYhZTRkmPkwliCWezBHRW7I",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/snippets/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"snippets",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Snippet",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMzQwNTk2LCJpYXQiOjE3NTMzMzk5OTYsImp0aSI6ImMwNTk2ODc5NjFkZjQ3ZjZhZDJlYjE2MTZlMjFhNmRjIiwidXNlcl9pZCI6Mn0.jv5wacBiVFz7NRrYhaBEDSTisU_VWqHAea5Q73h1NRc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"My First note\",\r\n  \"note\": \"My First note\",\r\n  \"tag\": {\r\n    \"title\": \"Note3\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/snippets/4/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"snippets",
+						"4",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete snippet",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMzQxMzA4LCJpYXQiOjE3NTMzNDA3MDgsImp0aSI6IjRlMjg3ZWUxMGM1MzQ0NDViNGFmZTZlZGQxZmQ3YTI3IiwidXNlcl9pZCI6MX0.hFr5Bg3FWFvlOuUmvcBYwGTc3uvaXIvT6Xqk4l1dy2A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/snippets/2/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"snippets",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Tags",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMzQxMzA4LCJpYXQiOjE3NTMzNDA3MDgsImp0aSI6IjRlMjg3ZWUxMGM1MzQ0NDViNGFmZTZlZGQxZmQ3YTI3IiwidXNlcl9pZCI6MX0.hFr5Bg3FWFvlOuUmvcBYwGTc3uvaXIvT6Xqk4l1dy2A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/tags/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tags",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Snippets of a Tag",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMzQzNTc0LCJpYXQiOjE3NTMzNDI5NzQsImp0aSI6Ijg0MzBmZGQ5MmY1ZTQ5OWE5MDc4OGE0NjkwZGNhNGUxIiwidXNlcl9pZCI6MX0.cbiB-aEIDindA_OJSJM_V96q1hxOtE9TAvt6ilACtQ0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/tags/4/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tags",
+						"4",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
