@@ -1,16 +1,16 @@
 from rest_framework import viewsets, permissions, status, generics
 from rest_framework.response import Response
 from .models import Snippet, Tag
-from .serializers import SnippetSerializer, TagSerializer
+from .serializers import SnippetSerializer,SnippetListSerializer, TagSerializer
 from django.shortcuts import get_object_or_404
 
 
-class Snippet(viewsets.ViewSet):
+class SnippetView(viewsets.ViewSet):
     permission_classes = [permissions.IsAuthenticated]
     
     def list(self, request):
         snippets = Snippet.objects.filter(user=request.user)
-        serializer = SnippetSerializer(snippets, many=True)
+        serializer = SnippetListSerializer(snippets, many=True, context={'request': request})
         return Response({
             "total_count": snippets.count(),
             "snippets": serializer.data
@@ -46,7 +46,7 @@ class TagList(generics.ListAPIView):
     serializer_class = TagSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-class TagDetailView(generics.RetrieveAPIView):
+class TagDetails(generics.RetrieveAPIView):
     serializer_class = SnippetSerializer
     permission_classes = [permissions.IsAuthenticated]
 
